@@ -6,10 +6,10 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Repository
-@Transactional
 public class UserDaoImp implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
@@ -22,7 +22,12 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void saveUser(User user) {
+    public void addUser(User user) {
+        entityManager.persist(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
         entityManager.merge(user);
     }
 

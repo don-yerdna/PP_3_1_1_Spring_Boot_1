@@ -3,6 +3,7 @@ package don_yerdna.spring_boot_mvc.model;
 import jakarta.persistence.*;
 
 import java.util.Objects;
+
 @Entity
 @Table(name = "users")
 public class User {
